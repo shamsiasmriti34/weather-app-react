@@ -1,8 +1,10 @@
 
 import { useState } from 'react';
-import './Css/bootstrap.min.css';
 import './Css/style.css';
 import SearchForm from './component/SearchForm';
+import Header from './component/Header'
+import WeatherCard from "./component/WeatherCard";
+import ForecastList from "./component/ForecastList";
 import { fetchGeoData, fetchWeather } from './Services/weatherService';
 
 
@@ -40,18 +42,34 @@ function App() {
     }
   }
   return (
-    <div className="App">
+    <div className="container App">
+      <Header />
+      <div className='row'>
+        <div className='col-md-8'>
 
-      <SearchForm state={{
-        city,
-        loading,
-        error,
-        weather,
-      }}
-        actions={{
-          setCity,
-          handleSearch,
-        }} />
+          <SearchForm state={{
+            city,
+            loading,
+            error,
+          }}
+            actions={{
+              setCity,
+              handleSearch,
+            }} />
+
+          {weather && (
+            <WeatherCard weather={weather} />
+          )}
+
+        </div>
+        <div className='col-md-4'>
+          {weather && (
+            <ForecastList forecast={weather.forecast} />
+          )}
+
+        </div>
+      </div>
+
 
     </div>
   );

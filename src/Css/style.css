@@ -1,8 +1,29 @@
-.city-form{
-    padding:10px;
-    margin:15px;
+.city-form {
+  padding: 10px;
+  margin: 15px;
 }
-.my-2{
-    font-size: 64px;
-    line-height: 1;
+
+.App {
+  background: #cad6ed ;
+  padding:20px;
+}
+
+.my-2 {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.main-card {
+  margin-bottom: 15px;
+}
+
+.maini-card {
+  /* background: #cad6ed !important; */
+  margin-bottom: 5px;
+  margin-left: 3px;
+}
+
+.search-btn {
+  background: white;
+
 }

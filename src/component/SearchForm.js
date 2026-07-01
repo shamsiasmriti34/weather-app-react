@@ -1,6 +1,5 @@
 
-
-import WeatherCard from "./WeatherCard";
+import { IoMdSearch } from "react-icons/io";
 import Loading from './Loading';
 import Error from './Error';
 
@@ -10,28 +9,32 @@ export default function SearchForm({ state, actions }) {
   const { setCity, handleSearch } = actions;
 
   return (
-    <div className='col-md-10 offset-1'>
-      <form className='row city-form ' onSubmit={handleSearch}>
-        <div className="col-md-6">
-          <input type="text" className="form-control"
-            value={city} placeholder='City Name'
-            onChange={(e) => setCity(e.target.value)} />
+    <div className='row text-center'>
+      <div className="card main-card">
+        <div className="card-body d-flex justify-content-center">
+          <form className='col-md-6 city-form text-center  ' onSubmit={handleSearch}>
+            <div className="input-group mb-3 ">
+              <input type="text" className="form-control"
+                value={city} placeholder='Search for City'
+                onChange={(e) => setCity(e.target.value)} />
+                 <button className="btn btn-primary " type="submit">
+                            <IoMdSearch size={28} />
+                        </button>
+            </div>
+            {/* <div className="col-md-2">
+              <button className="btn add-btn" type='submit'>
+                 {loading ? 'Searching...' : 'Search'} 
+                <IoMdSearch />
+              </button>
+            </div> */}
+            
+          </form>
         </div>
-        <div className="col-md-2">
-          <button className="btn btn-primary add-btn" type='submit'>
-            {loading ? 'Searching...' : 'Search'}
-          </button>
-        </div>
-      </form>
-      {/* Status Messages */}
+      </div>
+      
+      
       {loading && (<Loading loading={loading} />)}
       {error && (<Error error={error} />)}
-
-
-      {/* 💡 NEW UI CARD: Displays only when 'weather' state is no longer null */}
-      {weather && (
-        <WeatherCard weather={weather} />
-      )}
     </div>
   )
 

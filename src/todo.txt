@@ -1,0 +1,9 @@
+Version 2.0
+🔍 Search history (store the last 5 searched cities).
+❤️ Favourite cities.
+🌙 Light/Dark mode.
+📍 "Use my location" button.
+🌡️ Toggle between °C and °F.
+🖼️ Better weather icons (instead of emojis).
+⏰ Show the local time for the searched city.
+📱 Improve the mobile layout.

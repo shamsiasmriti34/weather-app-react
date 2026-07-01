@@ -1,44 +1,42 @@
-
+import { FaTemperatureLow } from "react-icons/fa";
 import getWeatherInterpretation from "../Utils/weatherUtils";
 
 export default function ForecastList({ forecast }) {
     return (
 
-        <table className="table">
+        <div className=" text-center">
 
-            <thead>
-            </thead>
-            <tbody>
-                {forecast.map((day) => (
-                    <ForecastRow key={day.date} day={day} />
 
-                ))}
-            </tbody>
-        </table>
+            {forecast.map((day) => (
+                <ForecastRow key={day.date} day={day} />
+
+            ))}
+        </div>
 
     );
 
 }
-function ForecastRow({day}) {
-    const condition = getWeatherInterpretation(day.weatherCode);
+function ForecastRow({ day }) {
+    const condition = getWeatherInterpretation(day.weatherCode,40);
     const formatter = new Intl.DateTimeFormat(
         "en-US",
         { weekday: "long" }
     );
     return (
-        <tr key={day.date}>
+        <div className="row card maini-card" key={day.date}>
 
-            <td>
-                {condition.emoji}
-                {formatter.format(new Date(day.date))}
+            <div className="row card-body">
+                <div className="col">
+                    {condition.icon}
+                    {formatter.format(new Date(day.date))}
+                </div>
+                <div className="col">
+                    <p><b>{day.maxTemp}°C</b><br/> {day.minTemp}°C</p>
+                </div>
 
-            </td>
 
-            <td>{day.maxTemp}°C</td>
-
-            <td>{day.minTemp}°C</td>
-
-        </tr>
+            </div>
+        </div>
     )
 
 }
