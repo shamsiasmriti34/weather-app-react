@@ -7,16 +7,16 @@ import WeatherCard from './component/WeatherCard';
 import ForecastCard from './component/ForecastList';
 import FavoriteCity from './component/FavoriteCity';
 import SearchHistory from './component/SearchHistory';
-import UseWeather from './Hooks/UseWeather';
-import UseHistory from './Hooks/UseHistory';
-import UseFavorite from './Hooks/UseFavorite';
+import useWeather from './hooks/useWeather';
+import useHistory from './hooks/useHistory';
+import useFavorite from './hooks/useFavorite';
 
 
 function App() {
   const [city, setCity] = useState("");
-  const { history, addToHistory, deleteHistoryItem, clearHistory } = UseHistory();
-  const { weather, loading, error, localCityName, searchWeather } = UseWeather();
-  const { favorite, addToFavorite, deleteFavoriteItem, clearFavorite } = UseFavorite();
+  const { history, addToHistory, deleteHistoryItem, clearHistory } = useHistory();
+  const { weather, loading, error, localCityName, searchWeather } = useWeather();
+  const { favorite, addToFavorite, deleteFavoriteItem, clearFavorite } = useFavorite();
 
   async function handleSearch(e, passedCity = null) {
     if (e) {

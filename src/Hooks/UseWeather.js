@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchWeather, fetchCityName} from '../Services/weatherService';
 
-export default function UseWeather() {
+export default function useWeather() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [weather, setWeather] = useState(null);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function UseWeather(){
+export default function useWeather(){
     const [history, setHistory] = useState(() => {
      const saved = localStorage.getItem("weather_history");
      return saved ? JSON.parse(saved) : [];

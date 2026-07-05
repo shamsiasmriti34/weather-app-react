@@ -1,7 +1,7 @@
 
 import { useState,useEffect } from "react";
 import { fetchWeather } from '../Services/weatherService';
-export default function UseFavorite() {
+export default function useFavorite() {
     const [favorite, setFavorite] = useState([]);
 
     useEffect(() => {
