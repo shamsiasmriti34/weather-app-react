@@ -2,21 +2,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { IoHeartSharp } from 'react-icons/io5';
 
 
-export default function SearchHistory({ history, setHistory, onCitySelect }) {
-
-    // Clear everything
-    const clearHistory = () => {
-        setHistory([]);
-        localStorage.removeItem("weather_history");
-    };
-
-    // Delete a single item by its index
-    const deleteHistoryItem = (indexToDelete) => {
-        const updatedHistory = history.filter((_, index) => index !== indexToDelete);
-        setHistory(updatedHistory);
-        localStorage.setItem("weather_history", JSON.stringify(updatedHistory));
-    };
-
+export default function SearchHistory({ history, setHistory, onCitySelect, deleteHistoryItem, clearHistory }) {
     return (
         <div className="card shadow-sm border-0 rounded-4 mt-4 overflow-hidden">
             <div className="card-header bg-white border-0 pt-4 pb-2 px-4 d-flex justify-content-between align-items-center">
@@ -36,11 +22,10 @@ export default function SearchHistory({ history, setHistory, onCitySelect }) {
             <div className="card-body p-0">
                 {history.length > 0 ? (
                     <ul className="list-group list-group-flush">
-                        {history.map((item, index) => (
+                        {history.map((item) => (
                             <HistoryList
-                                key={index}
+                                key={item}
                                 item={item}
-                                index={index}
                                 onCitySelect={onCitySelect}
                                 onDelete={deleteHistoryItem}
                             />
@@ -56,28 +41,25 @@ export default function SearchHistory({ history, setHistory, onCitySelect }) {
     );
 }
 
-function HistoryList({ item, index, onCitySelect, onDelete }) {
+function HistoryList({ item, onCitySelect, onDelete }) {
     return (
         <li className="list-group-item d-flex justify-content-between align-items-center list-group-item-action px-4 py-3">
-            <div
+            <button
                 role="button"
                 onClick={() => onCitySelect(item)}
-                className="flex-grow-1 text-start"
+                className="btn p-0 border-0 bg-transparent flex-grow-1 text-start"
             >
                 <h4 className="h6 mb-0 fw-semibold text-dark">
                     {item}
                 </h4>
-            </div>
-
-           
+            </button>
             <button
                 onClick={(e) => {
-                    e.stopPropagation(); 
-                    onDelete(index);
+                    e.stopPropagation();
+                    onDelete(item);
                 }}
                 className="btn btn-sm btn-link text-secondary text-decoration-none p-0 lh-1 fs-5"
                 title="Delete from history"
-                style={{ width: '24px', height: '24px' }}
             >
                 <MdDeleteForever />
             </button>

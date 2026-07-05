@@ -36,3 +36,14 @@
 .favorite-item-active:hover{
   color:gray;
 }
+
+.favorite-info-list {
+  /* Base Layout & Resets */
+  display: flex;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  flex-grow: 1;
+  margin-left: 1rem; /* Equal to ms-3 (16px) */
+  justify-content: space-between;
+}

@@ -1,18 +1,7 @@
 import { IoHeartSharp, IoHeartOutline } from 'react-icons/io5';
 
-export default function FavoriteCity({ favorite, setFavorite, onCitySelect }) {
+export default function FavoriteCity({ favorite, setFavorite,deleteFavoriteItem,clearFavorite, onCitySelect }) {
 
-    const clearFavorite = () => {
-        setFavorite([]);
-        localStorage.removeItem("favorite_cities");
-    };
-
-    const deleteFavoriteItem = (indexToDelete) => {
-        const updatedHistory = favorite.filter((_, index) => index !== indexToDelete);
-        setFavorite(updatedHistory);
-        const namesToSave = updatedHistory.map(item => item.cityName);
-        localStorage.setItem("favorite_cities", JSON.stringify(namesToSave));
-    };
 
     return (
         <div className="card shadow-sm border-0 rounded-4 mt-4 overflow-hidden">
@@ -70,19 +59,19 @@ function FavoriteList({ data, index, onCitySelect, onDelete }) {
             </button>
 
             {/* RESPONSIVE CONTAINER: Row on mobile -> Column on tablet sidebar -> Row on large desktop */}
-            <div
+            <button
                 role="button"
                 onClick={() => onCitySelect(data.cityName)}
-                className="d-flex flex-row flex-md-column flex-xl-row justify-content-between align-items-center align-items-md-start align-items-xl-center flex-grow-1 ms-3"
+                className="flex-row flex-md-column flex-xl-row align-items-center align-items-md-start align-items-xl-center favorite-info-list"
             >
                 {/* Left side column: City Name */}
                 <div className="mb-0 mb-md-2 mb-xl-0">
                     <h4 className="h6 mb-0 fw-bold text-dark">
                         {data.cityName}
                     </h4>
-                    <h4 className="h6 mb-0 fw-bold text-dark d-inline d-md-block d-xl-inline me-2 me-md-0 me-xl-0">
+                    <p className=" mb-0 text-dark d-inline d-md-block d-xl-inline me-2 me-md-0 me-xl-0">
                         {data.temp}°C
-                    </h4>
+                    </p>
                 </div>
 
                 {/* Right side column: Temperatures */}
@@ -94,7 +83,7 @@ function FavoriteList({ data, index, onCitySelect, onDelete }) {
                         <strong>{data.todayHigh}°C</strong> / {data.todayLow}°C
                     </span>
                 </div>
-            </div>
+            </button>
         </li>
     );
 }
