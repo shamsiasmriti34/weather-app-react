@@ -14,16 +14,25 @@
 }
 
 .main-card {
-  margin-bottom: 15px;
-}
-
-.maini-card {
-  /* background: #cad6ed !important; */
   margin-bottom: 5px;
-  margin-left: 3px;
+  
 }
 
-.search-btn {
-  background: white;
+.mt-20{
+  margin-top:20px;
+}
+.history-item:hover {
+    color: red !important;
+    width: '24px';
+    height: '24px'
+}
+.favorite-item:hover {
+    color: red !important;
 
+}
+.favorite-item-active{
+  color:red;
+}
+.favorite-item-active:hover{
+  color:gray;
 }

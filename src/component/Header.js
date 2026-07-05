@@ -1,12 +1,22 @@
-// import '../Css/style.css';
+import myLogo from '../assets/logo.png';
+import { MdLocationPin } from "react-icons/md";
 
-export default function Header() {
+export default function Header({cityName}) {
     return (
         <div className="row text-center">
             <div className="card main-card">
                 <div className="card-body">
-                    <h3 className="card-title">Weather App</h3>
-                    <h5>Search weather anywhere in the world </h5>
+                    <div className="d-flex justify-content-center align-items-center mb-3">
+                        <img
+                            src={myLogo}
+                            alt="Company Logo"
+                            className="logo-img me-2" 
+                            style={{ width: '40px', height: 'auto' }} 
+                        />
+                        
+                        <h3 className="card-title mb-0">Weather Now</h3>
+                    </div>
+                    <p><MdLocationPin /> {cityName},  Check weather anywhere</p>
                 </div>
             </div>
         </div>

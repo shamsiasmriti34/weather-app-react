@@ -5,34 +5,26 @@ import Error from './Error';
 
 export default function SearchForm({ state, actions }) {
 
-  const { city, loading, error, weather } = state;
+  const { city, loading, error } = state;
   const { setCity, handleSearch } = actions;
 
   return (
     <div className='row text-center'>
-      <div className="card main-card">
-        <div className="card-body d-flex justify-content-center">
-          <form className='col-md-6 city-form text-center  ' onSubmit={handleSearch}>
-            <div className="input-group mb-3 ">
-              <input type="text" className="form-control"
-                value={city} placeholder='Search for City'
-                onChange={(e) => setCity(e.target.value)} />
-                 <button className="btn btn-primary " type="submit">
-                            <IoMdSearch size={28} />
-                        </button>
-            </div>
-            {/* <div className="col-md-2">
-              <button className="btn add-btn" type='submit'>
-                 {loading ? 'Searching...' : 'Search'} 
-                <IoMdSearch />
-              </button>
-            </div> */}
-            
-          </form>
-        </div>
+      <div className="card shadow-sm border-0 rounded-4 main-card">
+        <form className='card-body d-flex justify-content-center city-form text-center  ' onSubmit={handleSearch}>
+          <div className="input-group mb-3 ">
+            <input type="text" className="form-control"
+              value={city} placeholder='Search for City'
+              onChange={(e) => setCity(e.target.value)} />
+            <button className="btn btn-primary " type="submit">
+              {loading ? 'Searching...' : <IoMdSearch size={28} />}
+              
+            </button>
+          </div>
+        </form>
       </div>
-      
-      
+
+
       {loading && (<Loading loading={loading} />)}
       {error && (<Error error={error} />)}
     </div>

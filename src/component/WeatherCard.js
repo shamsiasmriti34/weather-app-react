@@ -1,37 +1,63 @@
 
 
-import ForecastList from "./ForecastList";
 import getWeatherInterpretation from "../Utils/weatherUtils";
+import { IoHeartSharp } from 'react-icons/io5';
 
-export default function WeatherCard({ weather }) {
+export default function WeatherCard({ weather, favorite, addToFavorite }) {
 
 
-    const condition = getWeatherInterpretation(weather.weatherCode,90);
+    const condition = getWeatherInterpretation(weather.weatherCode, 120);
+    const isFavorite = favorite.some(
+        (item) => item.cityName.trim().toLowerCase() === weather.cityName.trim().toLowerCase()
+    );
 
     return (
-        <>
-
-            <div className="card main-card text-center rounded-4">
+        <div className="row">
+            <div className="card shadow-sm border-0 rounded-4 main-card text-center">
                 <div className="card-body">
                     <div className="row">
                         <div className="col-md-6">
-                            <h4 className="text-secondary mb-1">{weather.cityName}, {weather.countryName}</h4>
-                            <h5>{weather.time}, {weather.day}</h5>
 
-                            {/* Large visual Emoji and Temp Display */}
+                            <p className="text-muted mb-0 d-flex justify-content-center gap-2" >
+                                📍<strong>{weather.cityName}, {weather.countryName}</strong>
+                            </p>
+
+                            <p className="text-muted mb-0 d-flex justify-content-center gap-2">
+                                🕒 <strong> {weather.day}.{weather.time} </strong>
+                            </p>
+
                             <div className="my-2">
                                 {condition.icon}
                             </div>
+                            <h5 className="text-dark font-weight-bold uppercase-text">{condition.label}</h5>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-6 text-center">
                             <h1 className="display-3 font-weight-bold mb-2">{weather.temp}°C</h1>
 
-                            {/* Human-readable text label */}
-                            <h5 className="text-dark font-weight-bold uppercase-text">{condition.label}</h5>
-                            
 
                             <p className="text-muted mb-0 d-flex justify-content-center gap-2">
-                                <span>💨 Wind: <strong>{weather.windspeed} km/h</strong></span>
+                                💨 Wind
+                            </p>
+                            <p className="text-muted mb-0 d-flex justify-content-center gap-2">
+                                <strong>{weather.windspeed} km/h</strong>
+                            </p>
+                            <p className="text-muted mb-0 d-flex justify-content-center gap-2">
+                                <span>🌡 High / Low<strong></strong></span>
+                            </p>
+                            <p className="text-muted mb-0 d-flex justify-content-center gap-2">
+                                <span><strong>{weather.todayHigh}°C / {weather.todayLow}°C</strong></span>
+                            </p>
+                            <p className="text-muted mb-0 d-flex justify-content-center gap-2">
+                                <span>
+                                    <button
+                                        className="btn btn-sm btn-link text-secondary text-decoration-none p-0 lh-1 fs-5"
+                                        title="Add to Favorite"
+                                        onClick={() => addToFavorite(weather.cityName)}
+                                    >
+                                         {isFavorite ? <IoHeartSharp size={40} color="red" /> : <IoHeartSharp size={40} className="favorite-item" />}
+                                        
+                                    </button>
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -39,8 +65,7 @@ export default function WeatherCard({ weather }) {
 
                 </div>
             </div>
-           
-        </>
+        </div>
     );
 
 }

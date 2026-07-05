@@ -1,43 +1,56 @@
 import { FaTemperatureLow } from "react-icons/fa";
 import getWeatherInterpretation from "../Utils/weatherUtils";
 
-export default function ForecastList({ forecast }) {
+export default function ForecastCard({ forecast }) {
     return (
 
-        <div className=" text-center">
-
-
+        <div className="d-flex flex-nowrap justify-content-between g-1 text-center mt-3 overflow-x-auto pb-2">
             {forecast.map((day) => (
-                <ForecastRow key={day.date} day={day} />
-
+                <div
+                    className="flex-grow-1"
+                    key={day.date}
+                    style={{ minWidth: "0", flexBasis: "0" }}
+                >
+                    <ForecastRow day={day} />
+                </div>
             ))}
         </div>
-
     );
-
 }
+
 function ForecastRow({ day }) {
-    const condition = getWeatherInterpretation(day.weatherCode,40);
+    const condition = getWeatherInterpretation(day.weatherCode, 30);
     const formatter = new Intl.DateTimeFormat(
         "en-US",
-        { weekday: "long" }
+        { weekday: "short" }
     );
+
     return (
-        <div className="row card maini-card" key={day.date}>
+        <div className="card shadow-sm border-0 h-100 mx-1">
 
-            <div className="row card-body">
-                <div className="col">
+            <div className="card-body d-flex flex-column align-items-center justify-content-between py-2 px-1">
+                <div>
+
+                    <p className="mb-1 fw-semibold small">{formatter.format(new Date(day.date))}</p>
+                </div>
+
+                <div className="fs-4 my-1 text-primary">
                     {condition.icon}
-                    {formatter.format(new Date(day.date))}
                 </div>
-                <div className="col">
-                    <p><b>{day.maxTemp}°C</b><br/> {day.minTemp}°C</p>
+                <p className="small text-muted">
+
+                    {condition.label}
+
+                </p>
+
+                <div className="w-100">
+
+                    <div className="small lh-sm">
+                        <span className="fw-bold text-dark d-block">{day.maxTemp}°</span>
+                        <span className="text-muted d-block small">{day.minTemp}°</span>
+                    </div>
                 </div>
-
-
             </div>
         </div>
-    )
-
+    );
 }
-

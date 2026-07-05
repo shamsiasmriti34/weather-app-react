@@ -1,4 +1,10 @@
-export async function fetchGeoData({ city }) {
+export async function fetchCityName(lat,lon){
+    return await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`
+        );
+}
+
+export async function fetchGeoData(city ) {
     const geoResponse = await fetch(
         `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
     );
@@ -16,23 +22,28 @@ export async function fetchWeather({ geoData }) {
 
       const now = new Date();
       
-      const localTimeStr = getLocalTime({timezone,now});
+      const localTimeStr = getLocalTime(timezone,now);
 
-      const localDayStr = getLocalDay({timezone,now});
+      const localDayStr = getLocalDay(timezone,now);
 
     const weatherResponse = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`
     );
     const weatherData = await weatherResponse.json();
+    //console.log(weatherData);
 
     const weather = {
         cityName: name,
         countryName: country,
         time:localTimeStr,
         day:localDayStr,
+        latitude:latitude,
+        longitude:longitude,
         temp: weatherData.current_weather.temperature,
         windspeed: weatherData.current_weather.windspeed,
         weatherCode: weatherData.current_weather.weathercode,
+        todayHigh: weatherData.daily.temperature_2m_max[0],
+        todayLow: weatherData.daily.temperature_2m_min[0],
         forecast: weatherData.daily.time.map((date, index) => ({
             date,
             maxTemp: weatherData.daily.temperature_2m_max[index],
@@ -43,7 +54,7 @@ export async function fetchWeather({ geoData }) {
     return weather;
 }
 
-function getLocalTime({timezone,now}){
+function getLocalTime(timezone,now){
     return new Intl.DateTimeFormat('en-US', {
         timeZone: timezone,     
         hour: '2-digit',
@@ -53,10 +64,31 @@ function getLocalTime({timezone,now}){
       }).format(now);
 }
 
-function getLocalDay({timezone,now}){
+function getLocalDay(timezone,now){
     return new Intl.DateTimeFormat('en-US', {
         timeZone: timezone,
         weekday: 'long'
       }).format(now);
+
+}
+export async function fetchFavoriteCityData(city){
+    const geoData = await fetchGeoData(city);
+     if (!geoData.results || geoData.results.length === 0) {
+        return;
+      }
+
+    const { latitude, longitude, name, country, timezone } = geoData.results[0];
+    const weatherResponse = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`
+    );
+    const weatherData = await weatherResponse.json();
+
+    const weather = {
+        cityName: name,
+        temp: weatherData.current_weather.temperature,
+        todayHigh: weatherData.daily.temperature_2m_max[0],
+        todayLow: weatherData.daily.temperature_2m_min[0],
+    }
+    return weather;
 
 }
