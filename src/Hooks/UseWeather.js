@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchWeather, fetchCityName} from '../Services/weatherService';
+import { fetchWeather, fetchCityName } from '../Services/weatherService';
 
 export default function useWeather() {
     const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ export default function useWeather() {
 
                         const cityName = geoData.address.city || geoData.address.town || geoData.address.village || "Unknown Location";
                         setLocalCityName(cityName);
-                        
+
                         const weatherData = await fetchWeather(cityName);
 
                         setWeather(weatherData);
@@ -60,8 +60,12 @@ export default function useWeather() {
         setWeather(null);
 
         try {
-            
+
             const weatherData = await fetchWeather(targetCity);
+            if (!weatherData) {
+                setError("No city found. Please check the spelling and try again.");
+                return;
+            }
             setWeather(weatherData);
         } catch (err) {
             setError(err.message);

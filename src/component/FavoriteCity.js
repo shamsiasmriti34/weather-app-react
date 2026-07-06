@@ -1,32 +1,19 @@
 import { IoHeartSharp, IoHeartOutline } from 'react-icons/io5';
+import CommonSidebar from './CommonSidebar';
 
-export default function FavoriteCity({ favorite, setFavorite,deleteFavoriteItem,clearFavorite, onCitySelect }) {
+export default function FavoriteCity({ favorite, deleteFavoriteItem, clearFavorite, onCitySelect, }) {
 
 
     return (
         <div className="card shadow-sm border-0 rounded-4 mt-4 overflow-hidden">
-            <div className="card-header bg-white border-0 pt-4 pb-2 px-4 d-flex justify-content-between align-items-center">
-                <h3 className="card-title fs-6 text-secondary text-uppercase fw-bold m-0" style={{ letterSpacing: '0.05em' }}>
-                    Favorite Cities
-                </h3>
-                {favorite.length > 0 && (
-                    <button
-                        onClick={clearFavorite}
-                        className="btn btn-link btn-sm text-danger p-0 text-decoration-none fw-semibold"
-                    >
-                        Clear All
-                    </button>
-                )}
-            </div>
-
+            <CommonSidebar data={favorite} clearFunction={clearFavorite} title="Favorite Cities" />
             <div className="card-body p-0">
                 {favorite.length > 0 ? (
                     <ul className="list-group list-group-flush">
                         {favorite.map((data, index) => (
                             <FavoriteList
-                                key={index}
+                                key={data.cityName}
                                 data={data}
-                                index={index}
                                 onCitySelect={onCitySelect}
                                 onDelete={deleteFavoriteItem}
                             />
@@ -42,14 +29,14 @@ export default function FavoriteCity({ favorite, setFavorite,deleteFavoriteItem,
     );
 }
 
-function FavoriteList({ data, index, onCitySelect, onDelete }) {
+export function FavoriteList({ data, index, onCitySelect, onDelete }) {
     return (
         <li className="list-group-item d-flex align-items-start list-group-item-action px-4 py-3">
             {/* Heart Icon stays fixed on the left side */}
             <button
                 onClick={(e) => {
                     e.stopPropagation();
-                    onDelete(index);
+                    onDelete(data.cityName);
                 }}
                 className="btn btn-sm btn-link text-secondary text-decoration-none p-0 lh-1 fs-5 mt-1"
                 title="Delete from favorites"

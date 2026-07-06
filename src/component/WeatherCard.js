@@ -1,16 +1,24 @@
-
-
 import getWeatherInterpretation from "../Utils/weatherUtils";
 import { IoHeartSharp } from 'react-icons/io5';
 
-export default function WeatherCard({ weather, favorite, addToFavorite }) {
+function FavoriteButton({ actionFunction, city, styling,title }) {
+    return (
+        <button
+            className="btn btn-sm btn-link text-secondary text-decoration-none p-0 lh-1 fs-5"
+            title={title}
+            onClick={() => actionFunction(city)}
+        >
+            <IoHeartSharp size={40} className={styling} />
 
+        </button>
+    )
+}
 
+export default function WeatherCard({ weather, favorite, addToFavorite, deleteFavoriteItem }) {
     const condition = getWeatherInterpretation(weather.weatherCode, 120);
     const isFavorite = favorite.some(
         (item) => item.cityName.trim().toLowerCase() === weather.cityName.trim().toLowerCase()
     );
-
     return (
         <div className="row">
             <div className="card shadow-sm border-0 rounded-4 main-card text-center">
@@ -49,14 +57,17 @@ export default function WeatherCard({ weather, favorite, addToFavorite }) {
                             </p>
                             <p className="text-muted mb-0 d-flex justify-content-center gap-2">
                                 <span>
-                                    <button
-                                        className="btn btn-sm btn-link text-secondary text-decoration-none p-0 lh-1 fs-5"
-                                        title="Add to Favorite"
-                                        onClick={() => addToFavorite(weather.cityName)}
-                                    >
-                                         {isFavorite ? <IoHeartSharp size={40} color="red" /> : <IoHeartSharp size={40} className="favorite-item" />}
-                                        
-                                    </button>
+
+                                    {!isFavorite ? <FavoriteButton
+                                        actionFunction={addToFavorite}
+                                        city={weather.cityName}
+                                        styling="favorite-item"
+                                        title="Add to Favorite" /> : <FavoriteButton
+                                        actionFunction={deleteFavoriteItem}
+                                        city={weather.cityName}
+                                        styling="del-fav"
+                                        title="Remove Favorite" />}
+
                                 </span>
                             </p>
                         </div>

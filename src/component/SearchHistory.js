@@ -1,23 +1,12 @@
 import { MdDeleteForever } from "react-icons/md";
 import { IoHeartSharp } from 'react-icons/io5';
+import CommonSidebar from "./CommonSidebar";
 
 
-export default function SearchHistory({ history, setHistory, onCitySelect, deleteHistoryItem, clearHistory }) {
+export default function SearchHistory({ history,onCitySelect, deleteHistoryItem, clearHistory }) {
     return (
         <div className="card shadow-sm border-0 rounded-4 mt-4 overflow-hidden">
-            <div className="card-header bg-white border-0 pt-4 pb-2 px-4 d-flex justify-content-between align-items-center">
-                <h3 className="card-title fs-6 text-secondary text-uppercase fw-bold m-0" style={{ letterSpacing: '0.05em' }}>
-                    Recent Searches
-                </h3>
-                {history.length > 0 && (
-                    <button
-                        onClick={clearHistory}
-                        className="btn btn-link btn-sm text-danger p-0 text-decoration-none fw-semibold"
-                    >
-                        Clear All
-                    </button>
-                )}
-            </div>
+            <CommonSidebar data={history} clearFunction={clearHistory} title="Recent Searches" />
 
             <div className="card-body p-0">
                 {history.length > 0 ? (

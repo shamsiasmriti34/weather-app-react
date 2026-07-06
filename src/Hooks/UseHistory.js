@@ -1,9 +1,9 @@
 import { useState } from "react";
-
+import {getLocalItem,setLocalItem } from '../Services/weatherService';
 export default function useWeather(){
     const [history, setHistory] = useState(() => {
-     const saved = localStorage.getItem("weather_history");
-     return saved ? JSON.parse(saved) : [];
+     const saved = getLocalItem("weather_history");
+     return saved ? saved : [];
   });
 
 //   useEffect(() => {
@@ -21,7 +21,7 @@ export default function useWeather(){
     const newHistory = [normalizedQuery, ...cleanHistory].slice(0, 5);
     
     setHistory(newHistory);
-    localStorage.setItem("weather_history", JSON.stringify(newHistory));
+    setLocalItem("weather_history", newHistory);
   };
 
   const clearHistory = () => {

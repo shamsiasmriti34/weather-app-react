@@ -26,11 +26,10 @@ function App() {
     const targetCity = passedCity || city;
     if (loading || !targetCity?.trim()) return;
 
-    addToHistory(targetCity);
-
-    await searchWeather(targetCity);
-
-
+    if(await searchWeather(targetCity)){
+       addToHistory(targetCity);
+    }
+   
     setCity("");
   }
 
@@ -48,7 +47,7 @@ function App() {
             actions={{ setCity, handleSearch }}
           />
           {weather && (
-            <WeatherCard weather={weather} favorite={favorite} addToFavorite={addToFavorite} />
+            <WeatherCard weather={weather} favorite={favorite} addToFavorite={addToFavorite} deleteFavoriteItem={deleteFavoriteItem} />
           )}
           {weather && (
             <ForecastCard forecast={weather.forecast} />

@@ -47,3 +47,10 @@
   margin-left: 1rem; /* Equal to ms-3 (16px) */
   justify-content: space-between;
 }
+.del-fav{
+  color:red;
+
+}
+.del-fav:hover{
+  color: gray;
+}

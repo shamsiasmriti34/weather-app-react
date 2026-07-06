@@ -1,6 +1,6 @@
 
 import { useState,useEffect } from "react";
-import { fetchWeather } from '../Services/weatherService';
+import { fetchWeather, getLocalItem,setLocalItem } from '../Services/weatherService';
 export default function useFavorite() {
     const [favorite, setFavorite] = useState([]);
 
@@ -9,7 +9,8 @@ export default function useFavorite() {
         async function initializeData() {
 
 
-            const savedFav = JSON.parse(localStorage.getItem("favorite_cities")) || [];
+            const savedFav = getLocalItem("favorite_cities");
+            
             try {
                 const weatherPromises = savedFav.map(city => fetchWeather(city));
                 const results = await Promise.all(weatherPromises);
@@ -43,7 +44,7 @@ export default function useFavorite() {
 
 
             const namesToSave = newFavoriteState.map(item => item.cityName);
-            localStorage.setItem("favorite_cities", JSON.stringify(namesToSave));
+            setLocalItem("favorite_cities", namesToSave);
         } catch (err) {
             console.error("Could not add city to favorites:", err);
         }
@@ -54,8 +55,8 @@ export default function useFavorite() {
         localStorage.removeItem("favorite_cities");
     };
 
-    const deleteFavoriteItem = (indexToDelete) => {
-        const updatedHistory = favorite.filter((_, index) => index !== indexToDelete);
+    const deleteFavoriteItem = (cityToDelete) => {
+        const updatedHistory = favorite.filter((item, index) => item.cityName.trim().toLowerCase() !== cityToDelete.trim().toLowerCase());
         setFavorite(updatedHistory);
         const namesToSave = updatedHistory.map(item => item.cityName);
         localStorage.setItem("favorite_cities", JSON.stringify(namesToSave));

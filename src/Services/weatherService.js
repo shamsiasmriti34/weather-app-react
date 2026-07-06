@@ -1,4 +1,4 @@
-import { getLocalTime, getLocalDay } from '../Utils/localDayTimeUtils';
+import { getLocalTime, getLocalDay } from '../Utils/dateUtil';
 
 export async function fetchCityName(lat, lon) {
     return await fetch(
@@ -51,4 +51,13 @@ export async function fetchWeather(city) {
             }))
         }
          return weather;
+}
+
+export function getLocalItem(itemTitle){
+    return  JSON.parse(localStorage.getItem(itemTitle)) || []
+}
+export function setLocalItem(itemTitle, item){
+    const data=JSON.stringify(item)
+   localStorage.setItem(itemTitle,data);
+
 }
