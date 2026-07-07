@@ -29,7 +29,15 @@ export default function useWeather() {
                         const geoData = await geoResponse.json();
 
                         const cityName = geoData.address.city || geoData.address.town || geoData.address.village || "Unknown Location";
-                        setLocalCityName(cityName);
+                       // setLocalCityName(cityName);
+                        const countryName = geoData.address.country || "";
+
+                        const fullLocation = cityName !== "Unknown Location" && countryName
+                            ? `${cityName}, ${countryName}`
+                            : countryName || cityName;
+
+                        
+                        setLocalCityName(fullLocation);
 
                         const weatherData = await fetchWeather(cityName);
 

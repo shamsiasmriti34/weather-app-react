@@ -16,7 +16,7 @@ export default function Header({cityName}) {
                         
                         <h3 className="card-title mb-0">Weather Now</h3>
                     </div>
-                    <p><MdLocationPin /> {cityName},  Check weather anywhere</p>
+                    <p><MdLocationPin /> {cityName}</p>
                 </div>
             </div>
         </div>

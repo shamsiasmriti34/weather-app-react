@@ -54,3 +54,16 @@
 .del-fav:hover{
   color: gray;
 }
+@media (max-width: 767.98px) {
+  .forecast-scroll-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 8px;
+  }
+  
+  .forecast-scroll-container > div {
+    flex-shrink: 0 !important;
+    width: 100px !important; /* Forces the exact size on mobile */
+  }
+}
