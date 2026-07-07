@@ -53,10 +53,10 @@ export async function fetchWeather(city) {
          return weather;
 }
 
-export function getLocalItem(itemTitle){
+export function getLocalStorage(itemTitle){
     return  JSON.parse(localStorage.getItem(itemTitle)) || []
 }
-export function setLocalItem(itemTitle, item){
+export function setLocalStorage(itemTitle, item){
     const data=JSON.stringify(item)
    localStorage.setItem(itemTitle,data);
 

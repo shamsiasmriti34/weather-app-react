@@ -57,18 +57,19 @@ export default function useWeather() {
     const searchWeather = async (targetCity) => {
         setLoading(true);
         setError("");
-        setWeather(null);
 
         try {
 
             const weatherData = await fetchWeather(targetCity);
             if (!weatherData) {
                 setError("No city found. Please check the spelling and try again.");
-                return;
+                return false;
             }
             setWeather(weatherData);
+            return true;
         } catch (err) {
             setError(err.message);
+            return false;
         } finally {
             setLoading(false);
         }

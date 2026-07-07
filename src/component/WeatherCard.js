@@ -14,7 +14,7 @@ function FavoriteButton({ actionFunction, city, styling,title }) {
     )
 }
 
-export default function WeatherCard({ weather, favorite, addToFavorite, deleteFavoriteItem }) {
+export default function WeatherCard({ weather, favorite, addToFavorite, removeFavoriteItem }) {
     const condition = getWeatherInterpretation(weather.weatherCode, 120);
     const isFavorite = favorite.some(
         (item) => item.cityName.trim().toLowerCase() === weather.cityName.trim().toLowerCase()
@@ -63,7 +63,7 @@ export default function WeatherCard({ weather, favorite, addToFavorite, deleteFa
                                         city={weather.cityName}
                                         styling="favorite-item"
                                         title="Add to Favorite" /> : <FavoriteButton
-                                        actionFunction={deleteFavoriteItem}
+                                        actionFunction={removeFavoriteItem}
                                         city={weather.cityName}
                                         styling="del-fav"
                                         title="Remove Favorite" />}

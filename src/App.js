@@ -1,5 +1,4 @@
 
-import { useState } from 'react';
 import './Css/style.css';
 import SearchForm from './component/SearchForm';
 import Header from './component/Header'
@@ -13,29 +12,19 @@ import useFavorite from './hooks/useFavorite';
 
 
 function App() {
-  const [city, setCity] = useState("");
+  
   const { history, addToHistory, deleteHistoryItem, clearHistory } = useHistory();
   const { weather, loading, error, localCityName, searchWeather } = useWeather();
-  const { favorite, addToFavorite, deleteFavoriteItem, clearFavorite } = useFavorite();
+  const { favorite, addToFavorite, removeFavoriteItem, clearFavorite } = useFavorite();
 
-  async function handleSearch(e, passedCity = null) {
-    if (e) {
-      e.preventDefault();
-    }
-
-    const targetCity = passedCity || city;
-    if (loading || !targetCity?.trim()) return;
-
-    if(await searchWeather(targetCity)){
-       addToHistory(targetCity);
+  async function handleSearch(city) {
+   
+    if(await searchWeather(city)){
+       addToHistory(city);
+       return true;
     }
    
-    setCity("");
   }
-
-  const handleCitySelect = (cityName) => {
-    handleSearch(null, cityName);
-  };
 
   return (
     <div className="container App">
@@ -43,11 +32,15 @@ function App() {
       <div className='row'>
         <div className='col-md-9'>
           <SearchForm
-            state={{ city, loading, error }}
-            actions={{ setCity, handleSearch }}
+            loading={ loading}
+            error={error}
+            handleSearch={handleSearch}
           />
           {weather && (
-            <WeatherCard weather={weather} favorite={favorite} addToFavorite={addToFavorite} deleteFavoriteItem={deleteFavoriteItem} />
+            <WeatherCard weather={weather} 
+            favorite={favorite} 
+            addToFavorite={addToFavorite} 
+            removeFavoriteItem={removeFavoriteItem} />
           )}
           {weather && (
             <ForecastCard forecast={weather.forecast} />
@@ -56,13 +49,13 @@ function App() {
         <div className='col-md-3'>
           <FavoriteCity
             favorite={favorite}
-            deleteFavoriteItem={deleteFavoriteItem}
+            removeFavoriteItem={removeFavoriteItem}
             clearFavorite={clearFavorite}
-            onCitySelect={handleCitySelect}
+            onCitySelect={handleSearch}
           />
           <SearchHistory
             history={history}
-            onCitySelect={handleCitySelect}
+            onCitySelect={handleSearch}
             deleteHistoryItem={deleteHistoryItem}
             clearHistory={clearHistory}
           />

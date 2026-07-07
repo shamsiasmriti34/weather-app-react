@@ -1,7 +1,7 @@
 import { IoHeartSharp, IoHeartOutline } from 'react-icons/io5';
 import CommonSidebar from './CommonSidebar';
 
-export default function FavoriteCity({ favorite, deleteFavoriteItem, clearFavorite, onCitySelect, }) {
+export default function FavoriteCity({ favorite, removeFavoriteItem, clearFavorite, onCitySelect, }) {
 
 
     return (
@@ -15,7 +15,7 @@ export default function FavoriteCity({ favorite, deleteFavoriteItem, clearFavori
                                 key={data.cityName}
                                 data={data}
                                 onCitySelect={onCitySelect}
-                                onDelete={deleteFavoriteItem}
+                                onDelete={removeFavoriteItem}
                             />
                         ))}
                     </ul>
@@ -29,7 +29,7 @@ export default function FavoriteCity({ favorite, deleteFavoriteItem, clearFavori
     );
 }
 
-export function FavoriteList({ data, index, onCitySelect, onDelete }) {
+export function FavoriteList({ data, onCitySelect, onDelete }) {
     return (
         <li className="list-group-item d-flex align-items-start list-group-item-action px-4 py-3">
             {/* Heart Icon stays fixed on the left side */}
