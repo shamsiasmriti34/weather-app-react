@@ -8,7 +8,7 @@ function FavoriteButton({ actionFunction, city, styling,title }) {
             title={title}
             onClick={() => actionFunction(city)}
         >
-            <IoHeartSharp size={40} className={styling} />
+            <h6><IoHeartSharp size={30} className={styling} /> {title} </h6>
 
         </button>
     )
