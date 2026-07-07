@@ -1,4 +1,4 @@
-import { IoHeartSharp, IoHeartOutline } from 'react-icons/io5';
+import { IoHeartSharp } from 'react-icons/io5';
 import CommonSidebar from './CommonSidebar';
 
 export default function FavoriteCity({ favorite, removeFavoriteItem, clearFavorite, onCitySelect, }) {
@@ -47,7 +47,6 @@ export function FavoriteList({ data, onCitySelect, onDelete }) {
 
             {/* RESPONSIVE CONTAINER: Row on mobile -> Column on tablet sidebar -> Row on large desktop */}
             <button
-                role="button"
                 onClick={() => onCitySelect(data.cityName)}
                 className="flex-row flex-md-column flex-xl-row align-items-center align-items-md-start align-items-xl-center favorite-info-list"
             >

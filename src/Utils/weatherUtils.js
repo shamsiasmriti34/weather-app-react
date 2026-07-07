@@ -1,6 +1,5 @@
 import { 
   IoSunny, 
-  IoCloudyNight, // fallback if needed, but we use PartSunny
   IoPartlySunny, 
   IoCloud, 
   IoRainy, 

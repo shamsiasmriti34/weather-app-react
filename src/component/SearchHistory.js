@@ -1,9 +1,6 @@
 import { MdDeleteForever } from "react-icons/md";
-import { IoHeartSharp } from 'react-icons/io5';
 import CommonSidebar from "./CommonSidebar";
-
-
-export default function SearchHistory({ history,onCitySelect, deleteHistoryItem, clearHistory }) {
+export default function SearchHistory({ history, onCitySelect, deleteHistoryItem, clearHistory }) {
     return (
         <div className="card shadow-sm border-0 rounded-4 mt-4 overflow-hidden">
             <CommonSidebar data={history} clearFunction={clearHistory} title="Recent Searches" />
@@ -34,7 +31,6 @@ function HistoryList({ item, onCitySelect, onDelete }) {
     return (
         <li className="list-group-item d-flex justify-content-between align-items-center list-group-item-action px-4 py-3">
             <button
-                role="button"
                 onClick={() => onCitySelect(item)}
                 className="btn p-0 border-0 bg-transparent flex-grow-1 text-start"
             >

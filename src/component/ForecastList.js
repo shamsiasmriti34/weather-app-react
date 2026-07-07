@@ -1,4 +1,3 @@
-import { FaTemperatureLow } from "react-icons/fa";
 import getWeatherInterpretation from "../Utils/weatherUtils";
 
 export default function ForecastCard({ forecast }) {
