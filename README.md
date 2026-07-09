@@ -1,30 +1,44 @@
-<p align="center">
-  <img src="./src/assets/banner.png" alt="Weather Now Banner" width="100%">
-</p>
+# 🌤️ Weather Now
 
-<h1 align="center">Hi 👋, I'm Shamsia Sharmin</h1>
+A modern and responsive weather application built with **React** that allows users to search for weather information worldwide, save favorite cities, and view a 7-day weather forecast. The project focuses on clean architecture by separating UI, business logic, and API communication using reusable React components and custom hooks.
 
-<h3 align="center">
-Frontend Developer | React Learner | Passionate about building clean and responsive web applications
-</h3>
+## 🚀 Live Demo
 
-<p align="center">
-I enjoy turning ideas into interactive web applications while continuously improving my React, JavaScript, and frontend development skills.
-</p>
+🔗 https://weather-app-react-9dn1.vercel.app/
 
 ---
 
-## 👩‍💻 About Me
+## 📸 Screenshots
 
-- 🌱 Currently learning **React**, JavaScript, and modern frontend development.
-- 🚀 Building projects to strengthen my frontend development skills.
-- 💡 Interested in writing clean, maintainable, and reusable code.
-- 📚 Currently exploring custom hooks, React architecture, and best practices.
-- 🎯 Goal: Become a Frontend React Developer.
+### Home Page
+![Home Page](./screenshots/weather-home.png)
+
+### Search Result
+![Search Result](./screenshots/weather-search.png)
+
+### Favorite Cities
+![Favorite Cities](./screenshots/weather-favorites.png)
+
+### Mobile View
+![Mobile View](./screenshots/weather-mobile.png)
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Features
+
+- 🌍 Search weather by city name
+- 📍 Automatically detect the user's current location
+- 🌡️ Display current weather conditions
+- 📅 7-Day weather forecast
+- ❤️ Save and manage favorite cities
+- 🕒 Recent search history
+- 💾 Persistent data using Local Storage
+- 📱 Responsive design using Bootstrap 5
+- ⚠️ Loading and error handling
+
+---
+
+## 🛠️ Technologies Used
 
 ### Languages
 
@@ -43,66 +57,148 @@ I enjoy turning ideas into interactive web applications while continuously impro
 ![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github)
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel)
+---
+
+## 📂 Project Structure
+
+```text
+src
+│
+├── components
+│   ├── FavoriteCity.js
+    ├── CommonSidebar.js
+│   ├── ForecastCard.js
+│   ├── Header.js
+│   ├── Loading.js
+│   ├── Error.js
+│   ├── SearchForm.js
+│   ├── SearchHistory.js
+│   └── WeatherCard.js
+│
+├── hooks
+│   ├── useFavorite.js
+│   ├── useHistory.js
+│   └── useWeather.js
+│
+├── services
+│   └── weatherService.js
+│
+├── utils
+│   ├── dateUtils.js
+│   └── weatherUtils.js
+│
+├── Css
+    ├── style.css
+│   └── bootstrap.min.css
+│
+├── App.jsx
+└── main.jsx
+```
 
 ---
 
-## 🚀 Featured Project
+## 🧠 Architecture
 
-### 🌤️ Weather Now
+The application follows a simple separation of concerns.
 
-A modern weather application built with React featuring:
+- **Components** are responsible for rendering the UI.
+- **Custom Hooks** manage application state and business logic.
+- **Services** handle communication with external APIs.
+- **Utilities** contain reusable helper functions.
 
-- 🌍 Search weather by city
-- 📍 Automatic location detection
-- ❤️ Favorite cities
-- 🕘 Search history
-- 📅 7-day forecast
-- 📱 Responsive Bootstrap UI
-
-🔗 **Live Demo**
-
-https://weather-app-react-9dn1.vercel.app/
-
-📂 **Repository**
-
-https://github.com/shamsiasmriti34/weather-app-react
+This keeps the code modular, reusable, and easier to maintain.
 
 ---
 
-## 📈 Currently Learning
+## ⚙️ Installation
 
+Clone the repository
+
+```bash
+git clone https://github.com/shamsiasmriti34/weather-app-react.git
+```
+
+Navigate into the project
+
+```bash
+cd weather-app-react
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 🎯 What I Learned
+
+Building this project helped me improve my understanding of:
+
+- React Components
 - React Hooks
-- Custom Hooks
-- React Router
-- Context API
+- Creating Custom Hooks
+- State Management
 - API Integration
-- Responsive UI Design
+- Local Storage
+- Responsive Design
+- Separation of Concerns
+- Code Refactoring
+- Project Structure
+
+One of the biggest improvements during development was refactoring the application by extracting weather, favorites, and search history logic into reusable custom hooks, making the codebase much cleaner and easier to maintain.
 
 ---
 
-## 📊 GitHub Stats
+## 🔮 Future Improvements
 
-<p align="center">
+- 🌙 Dark Mode
+- 🌡️ Celsius / Fahrenheit toggle
+- 🕒 Hourly weather forecast
+- 💧 Humidity and pressure information
+- 🌅 Sunrise and sunset times
+- 🗺️ Weather map integration
+- ✨ Improved animations and transitions
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=shamsiasmriti34&show_icons=true&theme=tokyonight"/>
+---
 
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shamsiasmriti34&layout=compact&theme=tokyonight"/>
 
-</p>
+## 🙏 Acknowledgements
+
+- Open-Meteo API
+- OpenStreetMap Nominatim API
+- React
+- Bootstrap
+- React Icons
 
 ---
 
 ## 📫 Connect with Me
 
+Author: Shamsia Sharmin
+
 GitHub:
 https://github.com/shamsiasmriti34
 
-LinkedIn:
-
 
 Email:
-shamsia.smriti34@gmail.com
+(shamsia.smriti34@gmail.com)
 
 ---
 
-⭐ Thanks for visiting my profile!
+## ⭐ If you like this project
+
+If you found this project helpful or interesting, consider giving it a ⭐ on GitHub.
