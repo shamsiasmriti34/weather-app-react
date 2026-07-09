@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+<h1 align="center">Hi 👋, I'm Shamsia Smriti</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+Frontend Developer | React Learner | Passionate about building clean and responsive web applications
+</h3>
 
-## Available Scripts
+<p align="center">
+I enjoy turning ideas into interactive web applications while continuously improving my React, JavaScript, and frontend development skills.
+</p>
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 👩‍💻 About Me
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🌱 Currently learning **React**, JavaScript, and modern frontend development.
+- 🚀 Building projects to strengthen my frontend development skills.
+- 💡 Interested in writing clean, maintainable, and reusable code.
+- 📚 Currently exploring custom hooks, React architecture, and best practices.
+- 🎯 Goal: Become a Frontend React Developer.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Languages
 
-### `npm run build`
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tools
 
-### `npm run eject`
+![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Featured Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🌤️ Weather Now
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+A modern weather application built with React featuring:
 
-## Learn More
+- 🌍 Search weather by city
+- 📍 Automatic location detection
+- ❤️ Favorite cities
+- 🕘 Search history
+- 📅 7-day forecast
+- 📱 Responsive Bootstrap UI
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🔗 **Live Demo**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://weather-app-react-9dn1.vercel.app/
 
-### Code Splitting
+📂 **Repository**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+https://github.com/shamsiasmriti34/weather-app-react
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📈 Currently Learning
 
-### Making a Progressive Web App
+- React Hooks
+- Custom Hooks
+- React Router
+- Context API
+- API Integration
+- Responsive UI Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 📊 GitHub Stats
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<p align="center">
 
-### Deployment
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=shamsiasmriti34&show_icons=true&theme=tokyonight"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shamsiasmriti34&layout=compact&theme=tokyonight"/>
 
-### `npm run build` fails to minify
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📫 Connect with Me
+
+GitHub:
+https://github.com/shamsiasmriti34
+
+LinkedIn:
+
+
+Email:
+shamsia.smriti34@gmail.com
+
+---
+
+⭐ Thanks for visiting my profile!
