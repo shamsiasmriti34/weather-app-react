@@ -1,4 +1,8 @@
-<h1 align="center">Hi 👋, I'm Shamsia Smriti</h1>
+<p align="center">
+  <img src="./assets/banner.png" alt="Weather Now Banner" width="100%">
+</p>
+
+<h1 align="center">Hi 👋, I'm Shamsia Sharmin</h1>
 
 <h3 align="center">
 Frontend Developer | React Learner | Passionate about building clean and responsive web applications
